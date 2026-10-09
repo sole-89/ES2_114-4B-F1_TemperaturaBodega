@@ -26,14 +26,13 @@ class BienvenidaActivity : AppCompatActivity() {
         val btnLimpiar = findViewById<Button>(R.id.btnLimpiar)
         val btnGoogle = findViewById<Button>(R.id.btnGoogle)
 
-        // 1. BOTÓN INGRESAR (Satisface Indicadores 4, 5 y 6 de la pauta)
+        // 1. BOTÓN INGRESAR (Inicia sesión en Firebase Auth)
         btnIngresar.setOnClickListener {
             val correo = etCorreo.text.toString().trim()
             val clave = etPassword.text.toString().trim()
 
             var esValido = true
 
-            // Validar email sin @ con .error para cumplir indicador 4
             if (!correo.contains("@") || !correo.contains(".")) {
                 etCorreo.error = "Ingresa un email válido con @"
                 esValido = false
@@ -57,34 +56,10 @@ class BienvenidaActivity : AppCompatActivity() {
                 }
         }
 
-        // 2. BOTÓN REGISTRARSE (Satisface Indicadores 2 y 3 de la pauta)
+        // 2. BOTÓN REGISTRARSE (Abre el formulario en RegistroActivity)
         btnRegistrarse.setOnClickListener {
-            val correo = etCorreo.text.toString().trim()
-            val clave = etPassword.text.toString().trim()
-
-            var esValido = true
-
-            if (!correo.contains("@") || !correo.contains(".")) {
-                etCorreo.error = "Ingresa un email válido (ej: usuario@correo.com)"
-                esValido = false
-            }
-
-            if (clave.length < 6) {
-                etPassword.error = "La contraseña debe tener al menos 6 caracteres"
-                esValido = false
-            }
-
-            if (!esValido) return@setOnClickListener
-
-            auth.createUserWithEmailAndPassword(correo, clave)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show()
-                        irALecturas(correo)
-                    } else {
-                        Toast.makeText(this, "Error al registrar: ${task.exception?.message}", Toast.LENGTH_LONG).show()
-                    }
-                }
+            val intent = Intent(this, RegistroActivity::class.java)
+            startActivity(intent)
         }
 
         // 3. BOTÓN LIMPIAR
@@ -102,7 +77,7 @@ class BienvenidaActivity : AppCompatActivity() {
         }
     }
 
-    // 5. MÉTODOS VINCULADOS AL ATRIBUTO android:onClick EN XML
+    // 5. RECUPERAR CONTRASEÑA (android:onClick en XML)
     fun olvideClaveClick(view: View) {
         val etCorreo = findViewById<EditText>(R.id.etCorreo)
         val correo = etCorreo.text.toString().trim()

@@ -30,17 +30,25 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Registro de la pantalla de Bienvenida (Incremento 8) -->
+        <!-- Registro de la pantalla de Bienvenida -->
         <activity
             android:name=".BienvenidaActivity"
             android:exported="false" />
 
-        <!-- Registro de la pantalla de Preferencias (Incremento 15) -->
+        <!-- Registro de la pantalla de Preferencias -->
         <activity
             android:name=".PreferenciasActivity"
             android:exported="false" />
+
+        <!-- Pantalla de Lecturas -->
         <activity
             android:name=".LecturasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla de Registro de Usuario -->
+        <activity
+            android:name=".RegistroActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
