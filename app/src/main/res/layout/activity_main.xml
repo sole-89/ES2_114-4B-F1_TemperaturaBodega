@@ -1,124 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Contenedor principal de tipo ConstraintLayout: permite posicionar vistas mediante restricciones relativas -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fillViewport="true"
+    android:background="#FFFFFF">
 
-    <!-- Imagen del logo (Incremento 1): 96x96dp, margen superior de 32dp y centrado horizontal -->
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/logo_inacap"
-        android:contentDescription="Logo INACAP"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Título principal (Incremento 2): "Iniciar sesión", 24sp negrita, debajo del logo -->
-    <TextView
-        android:id="@+id/txtTitulo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Iniciar sesión"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/imgLogo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
 
-    <!-- Campo de entrada para Usuario (Incremento 3): ancho 0dp (match constraint) con márgenes laterales de 24dp -->
-    <EditText
-        android:id="@+id/edtUsuario"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:hint="Usuario"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Logo de la app -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/logo_bodega" />
 
-    <!-- Campo de entrada para Contraseña (Incremento 4): tipo textPassword para ocultar caracteres -->
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/edtUsuario"
-        app:layout_constraintStart_toStartOf="@id/edtUsuario"
-        app:layout_constraintEnd_toStartOf="@id/btnMostrarPassword" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar sesión"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp" />
 
-    <!-- Botón de imagen para mostrar u ocultar la contraseña -->
-    <ImageButton
-        android:id="@+id/btnMostrarPassword"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/ic_visibility_24"
-        android:background="@android:color/transparent"
-        android:contentDescription="Mostrar u ocultar contraseña"
-        android:onClick="onMostrarPasswordClick"
-        app:layout_constraintTop_toTopOf="@id/edtPassword"
-        app:layout_constraintBottom_toBottomOf="@id/edtPassword"
-        app:layout_constraintEnd_toEndOf="@id/edtUsuario" />
+        <!-- Campo Correo / Usuario -->
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Usuario / Correo"
+            android:inputType="textEmailAddress" />
 
-    <!-- Casilla de verificación Recordarme (Incremento 5): debajo del campo contraseña -->
-    <CheckBox
-        android:id="@+id/chkRecordarme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Recordarme"
-        app:layout_constraintTop_toBottomOf="@id/edtPassword"
-        app:layout_constraintStart_toStartOf="@id/edtPassword" />
+        <!-- Campo Contraseña -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="12dp" />
 
-    <!-- Botón Ingresar (Incremento 6 y 7): ejecuta el método onIngresarClick al presionarse -->
-    <Button
-        android:id="@+id/btnIngresar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Ingresar"
-        android:onClick="onIngresarClick"
-        app:layout_constraintTop_toBottomOf="@id/chkRecordarme"
-        app:layout_constraintStart_toStartOf="@id/edtUsuario"
-        app:layout_constraintEnd_toEndOf="@id/edtUsuario" />
+        <!-- Opción Olvidaste tu contraseña -->
+        <TextView
+            android:id="@+id/tvOlvidasteClave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="#283593"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true" />
 
-    <!-- Botón Limpiar: limpia los campos de texto y el checkbox al ejecutar onLimpiarClick -->
-    <Button
-        android:id="@+id/btnLimiar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:onClick="onLimpiarClick"
-        android:text="Limpiar"
-        android:backgroundTint="#FF0000"
-        app:layout_constraintEnd_toEndOf="@+id/btnIngresar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnIngresar"
-        app:layout_constraintTop_toBottomOf="@+id/btnIngresar" />
+        <!-- Botón Ingresar -->
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar"
+            android:backgroundTint="#283593"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp" />
 
-    <!-- Botón Continuar con Google -->
-    <Button
-        android:id="@+id/btnGoogle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:onClick="onGoogleSignInClick"
-        android:text="Continuar con Google"
-        android:backgroundTint="#4285F4"
-        app:layout_constraintEnd_toEndOf="@+id/btnIngresar"
-        app:layout_constraintStart_toStartOf="@+id/btnIngresar"
-        app:layout_constraintTop_toBottomOf="@+id/btnLimiar" />
+        <!-- Fila de Botones: Limpiar y Registrarse -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btnLimpiar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Limpiar"
+                android:backgroundTint="#D32F2F"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnRegistrarse"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="Registrarse"
+                android:backgroundTint="#283593"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Botón Continuar con Google -->
+        <Button
+            android:id="@+id/btnGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continuar con Google"
+            android:backgroundTint="#E0E0E0"
+            android:textColor="#424242"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

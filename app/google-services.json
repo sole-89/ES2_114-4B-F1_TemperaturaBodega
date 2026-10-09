@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "963742995438",
-    "project_id": "iot-viernes",
-    "storage_bucket": "iot-viernes.firebasestorage.app"
+    "project_number": "387963880414",
+    "project_id": "miprimeraaplicacion2-34f55",
+    "storage_bucket": "miprimeraaplicacion2-34f55.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:963742995438:android:ab6843091779f26ac2b4ff",
+        "mobilesdk_app_id": "1:387963880414:android:1cf6cb976e79d28a12934f",
         "android_client_info": {
           "package_name": "com.example.miprimeraaplicacion2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "963742995438-f3021f82p2pn8prurkfsnv369u5akkv3.apps.googleusercontent.com",
+          "client_id": "387963880414-5tfs9o73hn86bhu1vqe66g614c8umkpt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.miprimeraaplicacion2",
-            "certificate_hash": "f89159afc942266179475c835fa84f3234ba0059"
+            "certificate_hash": "6c0e1cb16aa497361e4ede9e26c19f92327e1a8f"
           }
         },
         {
-          "client_id": "963742995438-6pe0r7bqiikltomd33mqtnsmir2hr6hh.apps.googleusercontent.com",
+          "client_id": "387963880414-dk8n3cp5m6vh4vbs6p5veunacngsr2rp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCBUef1r8XNsvCgalDsjXnlbpLYC_XzxhU"
+          "current_key": "AIzaSyCGtRKlo0Qh1O62_eSVOVgtI9KEFbo7Tik"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "963742995438-6pe0r7bqiikltomd33mqtnsmir2hr6hh.apps.googleusercontent.com",
+              "client_id": "387963880414-dk8n3cp5m6vh4vbs6p5veunacngsr2rp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
